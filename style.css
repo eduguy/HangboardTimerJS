@@ -1,0 +1,23 @@
+#box {
+    border: 5px black;
+    background-color:white;
+    height: 30vh;
+    width:55vw;
+    display:flex;
+    flex-direction: column;
+       
+}
+
+#box h2 {
+    text-align: center;
+}
+
+body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
