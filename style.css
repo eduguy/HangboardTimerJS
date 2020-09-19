@@ -1,10 +1,11 @@
 #box {
     border: 5px black;
     background-color:white;
-    height: 30vh;
+    height: 75vh;
     width:55vw;
     display:flex;
     flex-direction: column;
+    padding:1%;
        
 }
 
@@ -20,6 +21,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #times {
@@ -31,4 +33,21 @@ body {
 .time {
     padding-left: 25px;
     padding-right:25px;
+}
+
+#box label {
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+#box button {
+    margin-top:2%;
+    margin-bottom:2%;
+    height:5vh;
+}
+
+#box select {
+    width: 50%;
+    padding-top:1%;
+    padding-top:1%;
 }
