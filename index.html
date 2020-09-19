@@ -10,9 +10,8 @@
 <body>
  <div id = "box">
     <h2> Hangboard Timer</h2>
-
+    <p> Turn down your volume and adjust from there. The beeping is set to be very loud. </p>
     <label for="sets">Choose your sets:</label>
-
         <select id = "setSelect" name="sets" id="sets">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -23,9 +22,8 @@
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-
+               
         </select>
-        
         <label for="hangTime">Time on hang (seconds):</label>
 
         <select id="hangTimeSelect" name="hangTime" id="hangTime">
@@ -40,7 +38,6 @@
             <option value="9">9</option>
 
         </select>
-
         <label for="restTime">Rest time (seconds):</label>
 
         <select id="restTimeSelect" name="restTime" id="restTime">
@@ -57,8 +54,6 @@
         </select>
 
         <button id="button" onclick="startTimer()" class = "button"  type="button">Click to start!</button>
-        
-        <div id="times">
             <p class = "time" id ="timeLeft">
                 Time left (hang): 
             </p>
@@ -66,7 +61,6 @@
             <p class = "time" id = "timeLeftRest"> 
                 Time left (rest):
             </p>
-        </div>
 
 </div>
 
