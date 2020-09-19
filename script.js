@@ -5,8 +5,9 @@
 var sets;
 var hangTime;
 var restTIme;
+var aud;
 function startTimer() {
-
+    beep();
     initializeFields();
     disableButton();
     setTime();
