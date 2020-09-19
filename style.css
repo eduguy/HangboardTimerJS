@@ -21,3 +21,14 @@ body {
     min-height: 100vh;
     overflow: hidden;
 }
+
+#times {
+    display:flex;
+    flex-direction: row;
+
+    
+}
+.time {
+    padding-left: 25px;
+    padding-right:25px;
+}
