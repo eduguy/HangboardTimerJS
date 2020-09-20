@@ -9,7 +9,8 @@ var sound = new Audio();
 
 function startTimer() {
     //sleep?
-    sound.play();
+    // sound.play();
+    beep();
     initializeFields();
     disableButton();
     setTime();
@@ -87,9 +88,10 @@ function enableButton() {
 }
 
 function beep() {
-    sound.src="data/BeeperSound.wav";
-    sound.volume=.3;
-    sound.play();
+    // sound.src="data/BeeperSound.wav";
+    // sound.volume=.3;
+    // sound.play();
+    document.getElementById("sound").play();
 }
 
 
