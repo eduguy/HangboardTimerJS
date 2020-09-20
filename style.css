@@ -23,7 +23,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', Helvetica, Arial, sans-serif;
     font-size:1.1rem;
 }
 
@@ -67,9 +67,7 @@ body {
         overflow:auto;
     }
 
-    body {
-        font-size: 1.4rem;
-    }
+
 }
 
 /* Portrait */
@@ -80,12 +78,12 @@ body {
   and (orientation: portrait) {
 
     #box {
-        height:90vh;
-        width:90vw;
+        height:80vh;
+        width:80vw;
     }
 
     body {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -96,14 +94,13 @@ body {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
 
-
     #box {
-        height:90vh;
-        width:90vw;
+        height:80vh;
+        width:80vw;
     }
 
     body {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -114,12 +111,12 @@ body {
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     #box {
-        height:90vh;
-        width:90vw;
+        height:80vh;
+        width:80vw;
     }
 
     body {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -130,11 +127,11 @@ body {
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     #box {
-        height:90vh;
-        width:90vw;
+        height:80vh;
+        width:80vw;
     }
 
     body {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
 }
