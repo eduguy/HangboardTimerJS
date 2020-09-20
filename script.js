@@ -5,11 +5,11 @@
 var sets;
 var hangTime;
 var restTIme;
-var sound = new Audio("data/BeeperSound.wav");
+var sound = new Audio();
 
 function startTimer() {
     //sleep?
-    beep();
+    sound.play();
     initializeFields();
     disableButton();
     setTime();
@@ -66,12 +66,12 @@ async function countDown() {
 
 function setTime() {
     
-    document.getElementById("timeLeft").innerHTML= "Time left (hang):" + hangTime;
+    document.getElementById("timeLeft").innerHTML= "Time left (hang): " + hangTime;
     document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + restTIme;
 }
 
 function updateTime(time1, time2) {
-    document.getElementById("timeLeft").innerHTML= "Time left (hang):" + time1;
+    document.getElementById("timeLeft").innerHTML= "Time left (hang): " + time1;
     document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + time2;
 }
 
@@ -87,6 +87,7 @@ function enableButton() {
 }
 
 function beep() {
+    sound.src="data/BeeperSound.wav";
     sound.volume=.3;
     sound.play();
 }
