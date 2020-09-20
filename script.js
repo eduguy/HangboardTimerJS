@@ -5,6 +5,7 @@
 var sets;
 var hangTime;
 var restTIme;
+var sound = new Audio("data/BeeperSound.wav");
 
 function startTimer() {
     //sleep?
@@ -87,7 +88,6 @@ function enableButton() {
 }
 
 function beep() {
-    var sound = new Audio("data/BeeperSound.wav");
     sound.volume=.3;
     sound.play();
 }

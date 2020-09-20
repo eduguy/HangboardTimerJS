@@ -54,10 +54,8 @@ body {
 
 #box select {
     width: 20vw;
-
     padding-top:1%;
     padding-bottom:1%;
-
     text-align:center;
 }
 @media screen and (max-width:700px), screen and (max-height:800px) {
