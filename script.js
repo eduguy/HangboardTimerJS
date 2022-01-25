@@ -61,6 +61,7 @@ async function countDown() {
     }
 
     enableButton();
+    beep();
     updateTime(0,0);
 
 }
