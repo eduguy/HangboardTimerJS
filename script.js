@@ -1,43 +1,36 @@
-// setInterval(tickDown,1000) 
-// function startTimer( sets, time, rest) {
-
-// }
-var sets;
-var hangTime;
-var restTIme;
-var sound = new Audio();
+let sets;
+let hangTime;
+let restTIme;
+let sound = new Audio();
 
 function startTimer() {
-    //sleep?
-    // sound.play();
-    beep();
     initializeFields();
     disableButton();
     setTime();
     countDown();
-    
-
 }
 
 function initializeFields() {
-    var x = document.getElementById("hangTimeSelect");
-    var ret = x.options[x.selectedIndex].value;
+    let x = document.getElementById("hangTimeSelect");
+    let ret = x.options[x.selectedIndex].value;
     hangTime = ret;
 
-    var t = document.getElementById("restTimeSelect");
-    var tt = t.options[t.selectedIndex].value;
+    let t = document.getElementById("restTimeSelect");
+    let tt = t.options[t.selectedIndex].value;
     restTIme = tt;
 
-    var y = document.getElementById("setSelect");
-    var yy = y.options[y.selectedIndex].value;
+    let y = document.getElementById("setSelect");
+    let yy = y.options[y.selectedIndex].value;
     sets = yy;
 }
 
 async function countDown() {
-    var s = sets;
-    while (s>0) {
-        var t = hangTime;
-        var tt = restTIme;
+    let s = sets;
+    updateSetsLeft(s);
+    await sleep(1000);
+    while (s > 0) {
+        let t = hangTime;
+        let tt = restTIme;
 
         while (t > 0) {
             updateTime(t, tt);
@@ -49,7 +42,7 @@ async function countDown() {
         beep();
         updateTime(t, tt);
 
-        while (tt>0) {
+        while (tt > 0) {
             updateTime(t, tt);
             tt--;
             await sleep(1000);
@@ -58,40 +51,42 @@ async function countDown() {
         beep();
 
         s--;
+        updateSetsLeft(s);
     }
 
     enableButton();
     beep();
-    updateTime(0,0);
+    updateTime(0, 0);
 
 }
 
+function updateSetsLeft(param) {
+    document.getElementById("setsLeft").innerHTML = "Sets left: " + param;
+}
+
 function setTime() {
-    
-    document.getElementById("timeLeft").innerHTML= "Time left (hang): " + hangTime;
+
+    document.getElementById("timeLeft").innerHTML = "Time left (hang): " + hangTime;
     document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + restTIme;
 }
 
 function updateTime(time1, time2) {
-    document.getElementById("timeLeft").innerHTML= "Time left (hang): " + time1;
+    document.getElementById("timeLeft").innerHTML = "Time left (hang): " + time1;
     document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + time2;
 }
 
 function disableButton() {
-    document.getElementById("button").style.opacity=".25";
+    document.getElementById("button").style.opacity = ".25";
     document.getElementById("button").disabled = true;
 
 }
 
 function enableButton() {
-    document.getElementById("button").style.opacity="1";
+    document.getElementById("button").style.opacity = "1";
     document.getElementById("button").disabled = false;
 }
 
 function beep() {
-    // sound.src="data/BeeperSound.wav";
-    // sound.volume=.3;
-    // sound.play();
     document.getElementById("sound").play();
 }
 
@@ -99,4 +94,4 @@ function beep() {
 //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}

@@ -1,7 +1,7 @@
 #box {
     border: 5px black;
     background-color:white;
-    height: 75vh;
+    height: 85vh;
     width:55vw;
     display:flex;
     flex-direction: column;
@@ -36,6 +36,7 @@ body {
 .time {
     padding-left: 25px;
     padding-right:25px;
+    font-size: 1.8rem;
 }
 
 #box label {
