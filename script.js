@@ -4,6 +4,7 @@ let restTIme;
 let sound = new Audio();
 
 function startTimer() {
+    beep();
     initializeFields();
     disableButton();
     setTime();
