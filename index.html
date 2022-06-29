@@ -78,7 +78,11 @@
 
         </select>
         <p> After you press start, there will be a beep and then a one second delay to get ready.</p>
-        <button id="button" onclick="startTimer()" class="button" type="button">Click to start!</button>
+        <div id="buttonDiv">
+            <button class="button" onclick="restartTimer()"> Reset timer! </button>
+            <button id="button" onclick="startTimer()" class="button" type="button">Click to start!</button>
+        </div>
+
         <p class="time" id="timeLeft">
             Time left (hang): 0
         </p>

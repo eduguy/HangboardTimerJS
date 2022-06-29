@@ -91,6 +91,12 @@ function beep() {
     document.getElementById("sound").play();
 }
 
+function restartTimer() {
+    document.location.reload()
+
+
+}
+
 
 //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(ms) {

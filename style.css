@@ -40,17 +40,18 @@ body {
 }
 
 #box label {
-    padding-top:2%;
-    padding-bottom:2%;
+    padding-top:1%;
+    padding-bottom:1%;
     text-align:center;
 }
 
 #box button {
-    margin-top:2%;
-    margin-bottom:2%;
+    /* margin-top:1%;
+    margin-bottom:1%; */
+    margin: 1%;
     height:5vh;
     width:25%;
-    text-align: center;
+    /* text-align: center; */
 }
 
 #box select {
@@ -59,15 +60,21 @@ body {
     padding-bottom:1%;
     text-align:center;
 }
+
+#buttonDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+
+}
+
 @media screen and (max-width:700px), screen and (max-height:800px) {
     #box {
         height:90vh;
         width:90vw;
         overflow:auto;
     }
-
-
-
 }
 
 /* Portrait */
