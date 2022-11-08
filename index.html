@@ -32,10 +32,14 @@
 
 </script>
 
-
 <body>
-
-    <audio preload="auto" id="sound" src="data/BeeperSound.wav""></audio>
+    <audio preload="auto" id="shortBeeperSound" src="data/ShortBeeperSound.wav""></audio>
+    <audio preload="auto" id="finishSound" src="data/FinishSound.mp3""></audio>
+    <audio preload="auto" id="hangSound" src="data/HangSound.mp3"></audio>
+    <audio preload="auto" id="restSound" src="data/RestSound.mp3"></audio>
+    <audio preload="auto" id="oneSound" src="data/OneSound.mp3"></audio>
+    <audio preload="auto" id="twoSound" src="data/TwoSound.mp3"></audio>
+    <audio preload="auto" id="threeSound" src="data/ThreeSound.mp3"></audio>
   
  <div id = "box">
         <h2> Hangboard Timer</h2>
@@ -77,7 +81,7 @@
 
 
         </select>
-        <p> After you press start, there will be a beep and then a one second delay to get ready.</p>
+        <p> After you press start, there will be a beep and then start on rest.</p>
         <div id="buttonDiv">
             <button class="button" onclick="restartTimer()"> Reset timer! </button>
             <button id="button" onclick="startTimer()" class="button" type="button">Click to start!</button>

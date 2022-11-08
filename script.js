@@ -1,104 +1,107 @@
 let sets;
 let hangTime;
-let restTIme;
-let sound = new Audio();
+let restTime;
+const sound = new Audio();
 
 function startTimer() {
-    beep();
-    initializeFields();
-    disableButton();
-    setTime();
-    countDown();
+  play("shortBeeperSound");
+  initializeFields();
+  disableButton();
+  setTime();
+  countDown();
 }
 
 function initializeFields() {
-    let x = document.getElementById("hangTimeSelect");
-    let ret = x.options[x.selectedIndex].value;
-    hangTime = ret;
+  const hangTimeSelectElem = document.getElementById("hangTimeSelect");
+  hangTime = hangTimeSelectElem.options[hangTimeSelectElem.selectedIndex].value;
 
-    let t = document.getElementById("restTimeSelect");
-    let tt = t.options[t.selectedIndex].value;
-    restTIme = tt;
+  const restTimeSelectElem = document.getElementById("restTimeSelect");
+  restTime = restTimeSelectElem.options[restTimeSelectElem.selectedIndex].value;
 
-    let y = document.getElementById("setSelect");
-    let yy = y.options[y.selectedIndex].value;
-    sets = yy;
+  const setSelectElem = document.getElementById("setSelect");
+  sets = setSelectElem.options[setSelectElem.selectedIndex].value;
 }
 
 async function countDown() {
-    let s = sets;
-    updateSetsLeft(s);
-    await sleep(1000);
-    while (s > 0) {
-        let t = hangTime;
-        let tt = restTIme;
+  let s = sets;
+  updateSetsLeft(s);
+  while (s > 0) {
+    let curHangTime = hangTime;
+    let curRestTime = restTime;
 
-        while (t > 0) {
-            updateTime(t, tt);
-            t--;
-            await sleep(1000);
-        }
-
-
-        beep();
-        updateTime(t, tt);
-
-        while (tt > 0) {
-            updateTime(t, tt);
-            tt--;
-            await sleep(1000);
-        }
-
-        beep();
-
-        s--;
-        updateSetsLeft(s);
+    while (curRestTime > 0) {
+      updateTime(curHangTime, curRestTime);
+      curRestTime--;
+      await sleep(1000);
+      if (curRestTime == 3) {
+        play("threeSound");
+      } else if (curRestTime == 2) {
+        play("twoSound");
+      } else if (curRestTime == 1) {
+        play("oneSound");
+      }
     }
 
-    enableButton();
-    beep();
-    updateTime(0, 0);
+    play("hangSound");
+    updateTime(curHangTime, curRestTime);
 
+    while (curHangTime > 0) {
+      updateTime(curHangTime, curRestTime);
+      curHangTime--;
+      await sleep(1000);
+      if (curHangTime == 3) {
+        play("threeSound");
+      } else if (curHangTime == 2) {
+        play("twoSound");
+      } else if (curHangTime == 1) {
+        play("oneSound");
+      }
+    }
+
+    s--;
+    updateSetsLeft(s);
+    play(s == 0 ? "finishSound" : "restSound");
+  }
+  enableButton();
+  updateTime(0, 0);
 }
 
 function updateSetsLeft(param) {
-    document.getElementById("setsLeft").innerHTML = "Sets left: " + param;
+  document.getElementById("setsLeft").innerHTML = "Sets left: " + param;
 }
 
 function setTime() {
-
-    document.getElementById("timeLeft").innerHTML = "Time left (hang): " + hangTime;
-    document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + restTIme;
+  document.getElementById("timeLeft").innerHTML =
+    "Time left (hang): " + hangTime;
+  document.getElementById("timeLeftRest").innerHTML =
+    "Time left (rest): " + restTime;
 }
 
 function updateTime(time1, time2) {
-    document.getElementById("timeLeft").innerHTML = "Time left (hang): " + time1;
-    document.getElementById("timeLeftRest").innerHTML = "Time left (rest): " + time2;
+  document.getElementById("timeLeft").innerHTML = "Time left (hang): " + time1;
+  document.getElementById("timeLeftRest").innerHTML =
+    "Time left (rest): " + time2;
 }
 
 function disableButton() {
-    document.getElementById("button").style.opacity = ".25";
-    document.getElementById("button").disabled = true;
-
+  document.getElementById("button").style.opacity = ".25";
+  document.getElementById("button").disabled = true;
 }
 
 function enableButton() {
-    document.getElementById("button").style.opacity = "1";
-    document.getElementById("button").disabled = false;
+  document.getElementById("button").style.opacity = "1";
+  document.getElementById("button").disabled = false;
 }
 
-function beep() {
-    document.getElementById("sound").play();
+function play(type) {
+  document.getElementById(type).play();
 }
 
 function restartTimer() {
-    document.location.reload()
-
-
+  document.location.reload();
 }
-
 
 //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
